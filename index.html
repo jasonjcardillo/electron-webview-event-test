@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Electron</title>
+  <style>
+    body {
+      color: #45828E;
+      background-color: #A5ECFA;
+      font-family: 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+
+    h2 {
+      background-color: #76C7D7;
+      color: #FAF7F3;
+      font-weight: 400;
+      padding: 15px 30px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>
+    <script>
+      document.write(`Welcome to Electron ${process.versions.electron}`);
+    </script>
+  </h2>
+
+  <webview id="webView" src="./webview1.html" style="height:300px;width:100%;top:200px;position:absolute" autosize="on" minWidth="300" minHeight="400"></webview>
+
+  <script>
+    document.body.addEventListener('mouseup', function() {console.log("mouseup");});
+    document.body.addEventListener('mousedown', function() {console.log("mousedown");});
+    document.body.addEventListener('click', function() {console.log("click");});
+    document.body.addEventListener('touchstart', function() {console.log("touchstart");});
+    document.body.addEventListener('touchend', function() {console.log("touchend");});
+
+    var launcherViewIpcRenderer = require('electron').ipcRenderer;
+    launcherViewIpcRenderer.on('toggleWebViewDevTools', function() {
+      var webView = document.getElementById("webView");
+      var isOpened = webView.isDevToolsOpened();
+      if(isOpened) {
+          webView.closeDevTools();
+      } else {
+          webView.openDevTools();
+      }
+    });
+  </script>
+</body>
+</html>
