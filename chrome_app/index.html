@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Electron</title>
+  <style>
+    body {
+      color: #45828E;
+      background-color: #A5ECFA;
+      font-family: 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+
+    h2 {
+      background-color: #76C7D7;
+      color: #FAF7F3;
+      font-weight: 400;
+      padding: 15px 30px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>
+    Welcome to Electron
+  </h2>
+  <h2 id="test">
+  </h2>
+  <webview id="webView" src="webview1.html" partition="good"
+ style="height:300px;width:100%;top:200px;position:absolute" autosize="on" minWidth="300" minHeight="400"></webview>
+  <script src="index.js"></script>
+</body>
+</html>

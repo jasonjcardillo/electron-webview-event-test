@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Dialog Element Example",
+  "version": "2",
+  "minimum_chrome_version": "31",
+  "permissions": [ "webview" ],
+  "app": {
+    "background": {
+      "scripts": ["main.js"]
+    }
+  },
+  "webview": {
+    "partitions": [
+      {
+        "name": "good",
+        "accessible_resources": ["webview1.html", "webview.js"]
+      }
+    ]
+  }
+}
